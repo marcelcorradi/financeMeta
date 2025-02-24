@@ -1,0 +1,144 @@
+/* Estilos gerais */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  flex: 1 0 auto;
+  padding: 20px 0;
+}
+
+/* Ajustes para o cabeçalho */
+.brand-logo {
+  margin-left: 10px;
+}
+
+@media only screen and (max-width: 992px) {
+  .brand-logo {
+    margin-left: 0;
+  }
+}
+
+/* Cards de Dashboard */
+.card .card-content .card-title {
+  margin-bottom: 15px;
+}
+
+/* Cartões de metas */
+.goals-list {
+  margin-top: 20px;
+}
+
+.goal-card {
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.goal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.goal-progress-text {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #757575;
+}
+
+.goal-details {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #757575;
+}
+
+.goal-details .material-icons.tiny {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Cores de progresso conforme categoria */
+.progress .determinate.emergency {
+  background-color: #ff5252; /* Vermelho para emergência */
+}
+
+.progress .determinate.travel {
+  background-color: #26a69a; /* Verde para viagem */
+}
+
+.progress .determinate.education {
+  background-color: #7e57c2; /* Roxo para educação */
+}
+
+.progress .determinate.retirement {
+  background-color: #5c6bc0; /* Azul índigo para aposentadoria */
+}
+
+.progress .determinate.house {
+  background-color: #26c6da; /* Azul claro para casa */
+}
+
+.progress .determinate.car {
+  background-color: #ffb74d; /* Laranja para carro */
+}
+
+.progress .determinate.other {
+  background-color: #78909c; /* Cinza azulado para outros */
+}
+
+/* Indicadores de prioridade */
+.priority-high {
+  color: #f44336;
+}
+
+.priority-medium {
+  color: #ff9800;
+}
+
+.priority-low {
+  color: #4caf50;
+}
+
+/* Modal */
+.modal {
+  max-height: 85%;
+  width: 85%;
+}
+
+/* Remove o preenchimento do rodapé na versão mobile */
+@media only screen and (max-width: 600px) {
+  footer.page-footer .footer-copyright {
+    padding: 10px 0;
+  }
+}
+
+/* Estilos para a página offline */
+.offline-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.offline-container i {
+  font-size: 80px;
+  color: #b0bec5;
+  margin-bottom: 20px;
+}
+
+/* Animação de pulsação */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}

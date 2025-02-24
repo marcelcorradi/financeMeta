@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinanceMeta - Suas Metas Financeiras</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2196f3">
+  <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+</head>
+<body>
+  <!-- Barra de navegação -->
+  <nav class="blue">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo">FinanceMeta</a>
+      <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li class="active"><a href="index.html">Dashboard</a></li>
+        <li><a href="goals.html">Minhas Metas</a></li>
+        <li><a href="add-goal.html">Nova Meta</a></li>
+        <li><a href="settings.html">Configurações</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Menu lateral para mobile -->
+  <ul class="sidenav" id="mobile-nav">
+    <li><div class="user-view">
+      <div class="background blue lighten-1"></div>
+      <a href="#"><span class="white-text name">FinanceMeta</span></a>
+      <a href="#"><span class="white-text email">Suas metas financeiras</span></a>
+    </div></li>
+    <li class="active"><a href="index.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+    <li><a href="goals.html"><i class="material-icons">list</i>Minhas Metas</a></li>
+    <li><a href="add-goal.html"><i class="material-icons">add_circle</i>Nova Meta</a></li>
+    <li><a href="settings.html"><i class="material-icons">settings</i>Configurações</a></li>
+  </ul>
+
+  <!-- Conteúdo principal -->
+  <main class="container">
+    <h4 class="center-align">Dashboard</h4>
+    
+    <!-- Resumo -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="card blue darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Total em metas</span>
+            <h3 class="center-align" id="total-goals-amount">R$ 0,00</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="card green darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Total economizado</span>
+            <h3 class="center-align" id="total-saved-amount">R$ 0,00</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="card orange darken-2">
+          <div class="card-content white-text">
+            <span class="card-title">Falta economizar</span>
+            <h3 class="center-align" id="total-remaining-amount">R$ 0,00</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metas em destaque -->
+    <h5>Metas em andamento</h5>
+    <div class="goals-list" id="goals-highlights">
+      <!-- As metas serão inseridas aqui dinamicamente via JavaScript -->
+      <div class="card hoverable">
+        <div class="card-content">
+          <span class="card-title">Nenhuma meta encontrada</span>
+          <p>Clique em "Nova Meta" para começar a planejar seu futuro financeiro.</p>
+        </div>
+        <div class="card-action">
+          <a href="add-goal.html" class="blue-text">Criar primeira meta</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botão flutuante para adicionar nova meta -->
+    <div class="fixed-action-btn">
+      <a href="add-goal.html" class="btn-floating btn-large blue pulse">
+        <i class="large material-icons">add</i>
+      </a>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="page-footer blue">
+    <div class="footer-copyright">
+      <div class="container">
+        © 2025 FinanceMeta - Versão 1.0
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>
