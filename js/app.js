@@ -11,8 +11,12 @@ function initializeApp() {
   // Inicializar banco de dados
   initDB().then(() => {
     // Carregar dados
-    loadDashboard();
-    loadGoals();
+    if (typeof loadDashboard === 'function') {
+      loadDashboard();
+    }
+    if (typeof loadGoals === 'function') {
+      loadGoals();
+    }
     
     // Registrar event listeners
     registerEventListeners();
@@ -170,8 +174,12 @@ function handleSaveDeposit() {
     const modal = M.Modal.getInstance(document.getElementById('deposit-modal'));
     modal.close();
     // Recarregar dados
-    loadGoals();
-    loadDashboard();
+    if (typeof loadGoals === 'function') {
+      loadGoals();
+    }
+    if (typeof loadDashboard === 'function') {
+      loadDashboard();
+    }
   }).catch(err => {
     console.error('Erro ao adicionar depósito:', err);
     M.toast({html: 'Erro ao adicionar depósito. Tente novamente.', classes: 'red'});
@@ -185,7 +193,9 @@ function applyFilters() {
   const statusFilter = document.getElementById('filter-status').value;
   
   // Recarregar metas com filtros
-  loadGoals(categoryFilter, priorityFilter, statusFilter);
+  if (typeof loadGoals === 'function') {
+    loadGoals(categoryFilter, priorityFilter, statusFilter);
+  }
 }
 
 // Função para gerar ID único

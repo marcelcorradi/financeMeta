@@ -13,14 +13,14 @@ const FILES_TO_CACHE = [
   './js/db.js',
   './js/ui.js',
   './manifest.json',
-  '/images/icons/icon-72x72.png',
-  '/images/icons/icon-96x96.png',
-  '/images/icons/icon-128x128.png',
-  '/images/icons/icon-144x144.png',
-  '/images/icons/icon-152x152.png',
-  '/images/icons/icon-192x192.png',
-  '/images/icons/icon-384x384.png',
-  '/images/icons/icon-512x512.png',
+  './images/icons/icon-72x72.png',
+  './images/icons/icon-96x96.png',
+  './images/icons/icon-128x128.png',
+  './images/icons/icon-144x144.png',
+  './images/icons/icon-152x152.png',
+  './images/icons/icon-192x192.png',
+  './images/icons/icon-384x384.png',
+  './images/icons/icon-512x512.png',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css',
@@ -102,7 +102,7 @@ self.addEventListener('fetch', event => {
               console.error('[Service Worker] Erro ao buscar recurso:', error);
               // Retornar página offline para navegação
               if (event.request.mode === 'navigate') {
-                return caches.match('/offline.html');
+                return caches.match('./offline.html');
               }
               
               return null;
@@ -117,7 +117,7 @@ self.addEventListener('fetch', event => {
           console.error('[Service Worker] Erro ao buscar recurso dinâmico:', error);
           // Retornar página offline para navegação
           if (event.request.mode === 'navigate') {
-            return caches.match('/offline.html');
+            return caches.match('./offline.html');
           }
           
           return null;
@@ -147,12 +147,13 @@ function isStaticResourceRequest(request) {
     url.pathname.endsWith('.jpeg') ||
     url.pathname.endsWith('.svg') ||
     url.pathname.endsWith('.ico') ||
-    url.pathname === '/' ||
-    url.pathname === '/index.html' ||
-    url.pathname === '/goals.html' ||
-    url.pathname === '/add-goal.html' ||
-    url.pathname === '/settings.html' ||
-    url.pathname === '/offline.html';
+    url.pathname.includes('/financemeta/') ||
+    url.pathname.endsWith('/') ||
+    url.pathname.endsWith('/index.html') ||
+    url.pathname.endsWith('/goals.html') ||
+    url.pathname.endsWith('/add-goal.html') ||
+    url.pathname.endsWith('/settings.html') ||
+    url.pathname.endsWith('/offline.html');
   
   // Verificar domínios externos para recursos CDN
   const isExternalResource =
