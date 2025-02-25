@@ -47,7 +47,7 @@ function initializeMaterialize() {
 // Registrar o service worker para PWA
 function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
+    navigator.serviceWorker.register('./sw.js')
       .then(reg => {
         console.log('Service Worker registrado com sucesso:', reg);
       }).catch(err => {

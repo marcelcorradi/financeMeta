@@ -2,7 +2,7 @@
   "name": "FinanceMeta - Metas Financeiras",
   "short_name": "FinanceMeta",
   "description": "Aplicativo para definir e acompanhar suas metas financeiras",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2196f3",
