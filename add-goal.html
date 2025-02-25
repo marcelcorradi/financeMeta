@@ -1,171 +1,222 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nova Meta | FinanceMeta</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#2196f3">
-</head>
-<body>
-  <!-- Barra de navegação -->
-  <nav class="blue">
-    <div class="nav-wrapper container">
-      <a href="#" class="brand-logo">FinanceMeta</a>
-      <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="index.html">Dashboard</a></li>
-        <li><a href="goals.html">Minhas Metas</a></li>
-        <li class="active"><a href="add-goal.html">Nova Meta</a></li>
-        <li><a href="settings.html">Configurações</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Menu lateral para mobile -->
-  <ul class="sidenav" id="mobile-nav">
-    <li><div class="user-view">
-      <div class="background blue lighten-1"></div>
-      <a href="#"><span class="white-text name">FinanceMeta</span></a>
-      <a href="#"><span class="white-text email">Suas metas financeiras</span></a>
-    </div></li>
-    <li><a href="index.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
-    <li><a href="goals.html"><i class="material-icons">list</i>Minhas Metas</a></li>
-    <li class="active"><a href="add-goal.html"><i class="material-icons">add_circle</i>Nova Meta</a></li>
-    <li><a href="settings.html"><i class="material-icons">settings</i>Configurações</a></li>
-  </ul>
-
-  <!-- Conteúdo principal -->
-  <main class="container">
-    <h4 class="center-align">Criar Nova Meta</h4>
-    
-    <div class="row">
-      <form class="col s12" id="add-goal-form">
-        <div class="card">
-          <div class="card-content">
-            <!-- Nome da meta -->
-            <div class="row">
-              <div class="input-field col s12">
-                <i class="material-icons prefix">label</i>
-                <input id="goal_name" type="text" class="validate" required>
-                <label for="goal_name">Nome da Meta</label>
-                <span class="helper-text">Ex: Fundo de emergência, Viagem de férias, etc.</span>
-              </div>
-            </div>
-
-            <!-- Categoria e Valor -->
-            <div class="row">
-              <div class="input-field col s12 m6">
-                <i class="material-icons prefix">category</i>
-                <select id="goal_category" required>
-                  <option value="" disabled selected>Escolha uma categoria</option>
-                  <option value="emergency">Emergência</option>
-                  <option value="travel">Viagem</option>
-                  <option value="education">Educação</option>
-                  <option value="retirement">Aposentadoria</option>
-                  <option value="house">Casa</option>
-                  <option value="car">Carro</option>
-                  <option value="other">Outro</option>
-                </select>
-                <label>Categoria</label>
-              </div>
-              <div class="input-field col s12 m6">
-                <i class="material-icons prefix">attach_money</i>
-                <input id="goal_amount" type="number" min="0" step="0.01" class="validate" required>
-                <label for="goal_amount">Valor da Meta (R$)</label>
-              </div>
-            </div>
-
-            <!-- Data limite -->
-            <div class="row">
-              <div class="input-field col s12 m6">
-                <i class="material-icons prefix">date_range</i>
-                <input id="goal_date" type="date" class="validate">
-                <label for="goal_date">Data limite (opcional)</label>
-              </div>
-              <div class="input-field col s12 m6">
-                <i class="material-icons prefix">savings</i>
-                <input id="initial_amount" type="number" min="0" step="0.01" value="0">
-                <label for="initial_amount">Valor inicial (R$)</label>
-              </div>
-            </div>
-
-            <!-- Prioridade e Notas -->
-            <div class="row">
-              <div class="input-field col s12 m6">
-                <i class="material-icons prefix">priority_high</i>
-                <select id="goal_priority">
-                  <option value="low">Baixa</option>
-                  <option value="medium" selected>Média</option>
-                  <option value="high">Alta</option>
-                </select>
-                <label>Prioridade</label>
-              </div>
-              <div class="input-field col s12 m6">
-                <i class="material-icons prefix">color_lens</i>
-                <select id="goal_color">
-                  <option value="blue" selected>Azul</option>
-                  <option value="green">Verde</option>
-                  <option value="red">Vermelho</option>
-                  <option value="purple">Roxo</option>
-                  <option value="orange">Laranja</option>
-                  <option value="teal">Turquesa</option>
-                </select>
-                <label>Cor</label>
-              </div>
-            </div>
-            
-            <div class="row">
-              <div class="input-field col s12">
-                <i class="material-icons prefix">notes</i>
-                <textarea id="goal_notes" class="materialize-textarea"></textarea>
-                <label for="goal_notes">Notas (opcional)</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-action center-align">
-            <button class="btn waves-effect waves-light blue" type="submit" name="action">
-              Salvar Meta
-              <i class="material-icons right">send</i>
-            </button>
-            <a href="index.html" class="btn waves-effect waves-light grey">
-              Cancelar
-              <i class="material-icons right">cancel</i>
-            </a>
-          </div>
-        </div>
-      </form>
-    </div>
-  </main>
-
-  <!-- Rodapé -->
-  <footer class="page-footer blue">
-    <div class="footer-copyright">
-      <div class="container">
-        © 2025 FinanceMeta - Versão 1.0
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova Meta | FinanceMeta</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#2196f3" />
+  </head>
+  <body>
+    <!-- Barra de navegação -->
+    <nav class="blue">
+      <div class="nav-wrapper container">
+        <a href="#" class="brand-logo">FinanceMeta</a>
+        <a href="#" data-target="mobile-nav" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul class="right hide-on-med-and-down">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="goals.html">Minhas Metas</a></li>
+          <li class="active"><a href="add-goal.html">Nova Meta</a></li>
+          <li><a href="settings.html">Configurações</a></li>
+        </ul>
       </div>
-    </div>
-  </footer>
+    </nav>
 
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/db.js"></script>
-  <script src="js/ui.js"></script>
-  <script>
-    // Inicializar componentes do Materialize
-    document.addEventListener('DOMContentLoaded', function() {
-      var selects = document.querySelectorAll('select');
-      M.FormSelect.init(selects);
-      
-      var sidenav = document.querySelectorAll('.sidenav');
-      M.Sidenav.init(sidenav);
-    });
-  </script>
-</body>
+    <!-- Menu lateral para mobile -->
+    <ul class="sidenav" id="mobile-nav">
+      <li>
+        <div class="user-view">
+          <div class="background blue lighten-1"></div>
+          <a href="#"><span class="white-text name">FinanceMeta</span></a>
+          <a href="#"
+            ><span class="white-text email">Suas metas financeiras</span></a
+          >
+        </div>
+      </li>
+      <li>
+        <a href="index.html"
+          ><i class="material-icons">dashboard</i>Dashboard</a
+        >
+      </li>
+      <li>
+        <a href="goals.html"><i class="material-icons">list</i>Minhas Metas</a>
+      </li>
+      <li class="active">
+        <a href="add-goal.html"
+          ><i class="material-icons">add_circle</i>Nova Meta</a
+        >
+      </li>
+      <li>
+        <a href="settings.html"
+          ><i class="material-icons">settings</i>Configurações</a
+        >
+      </li>
+    </ul>
+
+    <!-- Conteúdo principal -->
+    <main class="container">
+      <h4 class="center-align">Criar Nova Meta</h4>
+
+      <div class="row">
+        <form class="col s12" id="add-goal-form">
+          <div class="card">
+            <div class="card-content">
+              <!-- Nome da meta -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">label</i>
+                  <input id="goal_name" type="text" class="validate" required />
+                  <label for="goal_name">Nome da Meta</label>
+                  <span class="helper-text"
+                    >Ex: Fundo de emergência, Viagem de férias, etc.</span
+                  >
+                </div>
+              </div>
+
+              <!-- Categoria e Valor -->
+              <div class="row">
+                <div class="input-field col s12 m6">
+                  <i class="material-icons prefix">category</i>
+                  <select id="goal_category" required>
+                    <option value="" disabled selected>
+                      Escolha uma categoria
+                    </option>
+                    <option value="emergency">Emergência</option>
+                    <option value="travel">Viagem</option>
+                    <option value="education">Educação</option>
+                    <option value="retirement">Aposentadoria</option>
+                    <option value="house">Casa</option>
+                    <option value="car">Carro</option>
+                    <option value="other">Outro</option>
+                  </select>
+                  <label>Categoria</label>
+                </div>
+                <div class="input-field col s12 m6">
+                  <i class="material-icons prefix">attach_money</i>
+                  <input
+                    id="goal_amount"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    class="validate"
+                    required
+                  />
+                  <label for="goal_amount">Valor da Meta (R$)</label>
+                </div>
+              </div>
+
+              <!-- Data limite -->
+              <div class="row">
+                <div class="input-field col s12 m6">
+                  <i class="material-icons prefix">date_range</i>
+                  <input id="goal_date" type="date" class="validate" />
+                  <label for="goal_date">Data limite (opcional)</label>
+                </div>
+                <div class="input-field col s12 m6">
+                  <i class="material-icons prefix">savings</i>
+                  <input
+                    id="initial_amount"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    value="0"
+                  />
+                  <label for="initial_amount">Valor inicial (R$)</label>
+                </div>
+              </div>
+
+              <!-- Prioridade e Notas -->
+              <div class="row">
+                <div class="input-field col s12 m6">
+                  <i class="material-icons prefix">priority_high</i>
+                  <select id="goal_priority">
+                    <option value="low">Baixa</option>
+                    <option value="medium" selected>Média</option>
+                    <option value="high">Alta</option>
+                  </select>
+                  <label>Prioridade</label>
+                </div>
+                <div class="input-field col s12 m6">
+                  <i class="material-icons prefix">color_lens</i>
+                  <select id="goal_color">
+                    <option value="blue" selected>Azul</option>
+                    <option value="green">Verde</option>
+                    <option value="red">Vermelho</option>
+                    <option value="purple">Roxo</option>
+                    <option value="orange">Laranja</option>
+                    <option value="teal">Turquesa</option>
+                  </select>
+                  <label>Cor</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">notes</i>
+                  <textarea
+                    id="goal_notes"
+                    class="materialize-textarea"
+                  ></textarea>
+                  <label for="goal_notes">Notas (opcional)</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-action center-align">
+              <button
+                class="btn waves-effect waves-light blue"
+                type="submit"
+                name="action"
+              >
+                Salvar Meta
+                <i class="material-icons right">send</i>
+              </button>
+              <a href="index.html" class="btn waves-effect waves-light grey">
+                Cancelar
+                <i class="material-icons right">cancel</i>
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="page-footer blue">
+      <div class="footer-copyright">
+        <div class="container">© 2025 FinanceMeta - Versão 1.0</div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/db.js"></script>
+    <script src="./js/ui.js"></script>
+    <script>
+      // Inicializar componentes do Materialize
+      document.addEventListener("DOMContentLoaded", function () {
+        var selects = document.querySelectorAll("select");
+        M.FormSelect.init(selects);
+
+        var sidenav = document.querySelectorAll(".sidenav");
+        M.Sidenav.init(sidenav);
+      });
+    </script>
+  </body>
 </html>

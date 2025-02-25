@@ -1,261 +1,371 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minhas Metas | FinanceMeta</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#2196f3">
-</head>
-<body>
-  <!-- Barra de navegação -->
-  <nav class="blue">
-    <div class="nav-wrapper container">
-      <a href="#" class="brand-logo">FinanceMeta</a>
-      <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="index.html">Dashboard</a></li>
-        <li class="active"><a href="goals.html">Minhas Metas</a></li>
-        <li><a href="add-goal.html">Nova Meta</a></li>
-        <li><a href="settings.html">Configurações</a></li>
-      </ul>
-    </div>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minhas Metas | FinanceMeta</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#2196f3" />
+  </head>
+  <body>
+    <!-- Barra de navegação -->
+    <nav class="blue">
+      <div class="nav-wrapper container">
+        <a href="#" class="brand-logo">FinanceMeta</a>
+        <a href="#" data-target="mobile-nav" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul class="right hide-on-med-and-down">
+          <li><a href="index.html">Dashboard</a></li>
+          <li class="active"><a href="goals.html">Minhas Metas</a></li>
+          <li><a href="add-goal.html">Nova Meta</a></li>
+          <li><a href="settings.html">Configurações</a></li>
+        </ul>
+      </div>
+    </nav>
 
-  <!-- Menu lateral para mobile -->
-  <ul class="sidenav" id="mobile-nav">
-    <li><div class="user-view">
-      <div class="background blue lighten-1"></div>
-      <a href="#"><span class="white-text name">FinanceMeta</span></a>
-      <a href="#"><span class="white-text email">Suas metas financeiras</span></a>
-    </div></li>
-    <li><a href="index.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
-    <li class="active"><a href="goals.html"><i class="material-icons">list</i>Minhas Metas</a></li>
-    <li><a href="add-goal.html"><i class="material-icons">add_circle</i>Nova Meta</a></li>
-    <li><a href="settings.html"><i class="material-icons">settings</i>Configurações</a></li>
-  </ul>
+    <!-- Menu lateral para mobile -->
+    <ul class="sidenav" id="mobile-nav">
+      <li>
+        <div class="user-view">
+          <div class="background blue lighten-1"></div>
+          <a href="#"><span class="white-text name">FinanceMeta</span></a>
+          <a href="#"
+            ><span class="white-text email">Suas metas financeiras</span></a
+          >
+        </div>
+      </li>
+      <li>
+        <a href="index.html"
+          ><i class="material-icons">dashboard</i>Dashboard</a
+        >
+      </li>
+      <li class="active">
+        <a href="goals.html"><i class="material-icons">list</i>Minhas Metas</a>
+      </li>
+      <li>
+        <a href="add-goal.html"
+          ><i class="material-icons">add_circle</i>Nova Meta</a
+        >
+      </li>
+      <li>
+        <a href="settings.html"
+          ><i class="material-icons">settings</i>Configurações</a
+        >
+      </li>
+    </ul>
 
-  <!-- Conteúdo principal -->
-  <main class="container">
-    <h4 class="center-align">Minhas Metas</h4>
-    
-    <!-- Filtros -->
-    <div class="row">
-      <div class="col s12">
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">Filtros</span>
-            <div class="row">
-              <div class="input-field col s12 m4">
-                <select id="filter-category">
-                  <option value="" selected>Todas as categorias</option>
-                  <option value="emergency">Emergência</option>
-                  <option value="travel">Viagem</option>
-                  <option value="education">Educação</option>
-                  <option value="retirement">Aposentadoria</option>
-                  <option value="house">Casa</option>
-                  <option value="car">Carro</option>
-                  <option value="other">Outro</option>
-                </select>
-                <label>Filtrar por categoria</label>
-              </div>
-              <div class="input-field col s12 m4">
-                <select id="filter-priority">
-                  <option value="" selected>Todas as prioridades</option>
-                  <option value="low">Baixa</option>
-                  <option value="medium">Média</option>
-                  <option value="high">Alta</option>
-                </select>
-                <label>Filtrar por prioridade</label>
-              </div>
-              <div class="input-field col s12 m4">
-                <select id="filter-status">
-                  <option value="" selected>Todos os status</option>
-                  <option value="active">Em andamento</option>
-                  <option value="completed">Concluídas</option>
-                </select>
-                <label>Filtrar por status</label>
+    <!-- Conteúdo principal -->
+    <main class="container">
+      <h4 class="center-align">Minhas Metas</h4>
+
+      <!-- Filtros -->
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">Filtros</span>
+              <div class="row">
+                <div class="input-field col s12 m4">
+                  <select id="filter-category">
+                    <option value="" selected>Todas as categorias</option>
+                    <option value="emergency">Emergência</option>
+                    <option value="travel">Viagem</option>
+                    <option value="education">Educação</option>
+                    <option value="retirement">Aposentadoria</option>
+                    <option value="house">Casa</option>
+                    <option value="car">Carro</option>
+                    <option value="other">Outro</option>
+                  </select>
+                  <label>Filtrar por categoria</label>
+                </div>
+                <div class="input-field col s12 m4">
+                  <select id="filter-priority">
+                    <option value="" selected>Todas as prioridades</option>
+                    <option value="low">Baixa</option>
+                    <option value="medium">Média</option>
+                    <option value="high">Alta</option>
+                  </select>
+                  <label>Filtrar por prioridade</label>
+                </div>
+                <div class="input-field col s12 m4">
+                  <select id="filter-status">
+                    <option value="" selected>Todos os status</option>
+                    <option value="active">Em andamento</option>
+                    <option value="completed">Concluídas</option>
+                  </select>
+                  <label>Filtrar por status</label>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Lista de metas -->
-    <div class="goals-list" id="goals-container">
-      <!-- As metas serão inseridas aqui dinamicamente -->
-      <div class="card hoverable goal-placeholder">
-        <div class="card-content">
-          <span class="card-title">Nenhuma meta encontrada</span>
-          <p>Você ainda não tem metas cadastradas ou nenhuma meta corresponde aos filtros selecionados.</p>
-        </div>
-        <div class="card-action">
-          <a href="add-goal.html" class="blue-text">Criar primeira meta</a>
+      <!-- Lista de metas -->
+      <div class="goals-list" id="goals-container">
+        <!-- As metas serão inseridas aqui dinamicamente -->
+        <div class="card hoverable goal-placeholder">
+          <div class="card-content">
+            <span class="card-title">Nenhuma meta encontrada</span>
+            <p>
+              Você ainda não tem metas cadastradas ou nenhuma meta corresponde
+              aos filtros selecionados.
+            </p>
+          </div>
+          <div class="card-action">
+            <a href="add-goal.html" class="blue-text">Criar primeira meta</a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Template de card de meta (será clonado pelo JavaScript) -->
-    <div id="goal-template" style="display: none;">
-      <div class="card hoverable goal-card">
-        <div class="card-content">
-          <span class="card-title goal-name">Nome da Meta</span>
+      <!-- Template de card de meta (será clonado pelo JavaScript) -->
+      <div id="goal-template" style="display: none">
+        <div class="card hoverable goal-card">
+          <div class="card-content">
+            <span class="card-title goal-name">Nome da Meta</span>
+            <div class="row">
+              <div class="col s12">
+                <div class="progress">
+                  <div
+                    class="determinate goal-progress"
+                    style="width: 0%"
+                  ></div>
+                </div>
+                <p class="goal-progress-text">R$ 0 de R$ 0 (0%)</p>
+              </div>
+            </div>
+            <div class="row goal-details">
+              <div class="col s6">
+                <p>
+                  <i class="material-icons tiny">category</i>
+                  <span class="goal-category">Categoria</span>
+                </p>
+                <p>
+                  <i class="material-icons tiny">priority_high</i>
+                  <span class="goal-priority">Prioridade</span>
+                </p>
+              </div>
+              <div class="col s6">
+                <p>
+                  <i class="material-icons tiny">date_range</i>
+                  <span class="goal-deadline">Sem data</span>
+                </p>
+                <p>
+                  <i class="material-icons tiny">trending_up</i>
+                  <span class="goal-monthly-needed">R$ 0/mês</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="card-action">
+            <a href="#deposit-modal" class="modal-trigger blue-text btn-deposit"
+              >Depositar</a
+            >
+            <a
+              href="#goal-details-modal"
+              class="modal-trigger green-text btn-details"
+              >Detalhes</a
+            >
+            <a
+              href="#edit-goal-modal"
+              class="modal-trigger amber-text text-darken-2 btn-edit"
+              >Editar</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal de depósito -->
+      <div id="deposit-modal" class="modal">
+        <div class="modal-content">
+          <h5>Adicionar depósito</h5>
+          <div class="row">
+            <form id="deposit-form" class="col s12">
+              <input type="hidden" id="deposit-goal-id" />
+              <div class="row">
+                <div class="input-field col s12">
+                  <input
+                    id="deposit-amount"
+                    type="number"
+                    min="0.01"
+                    step="0.01"
+                    class="validate"
+                    required
+                  />
+                  <label for="deposit-amount">Valor (R$)</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input
+                    id="deposit-date"
+                    type="date"
+                    class="validate"
+                    required
+                  />
+                  <label for="deposit-date">Data</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="deposit-notes" type="text" />
+                  <label for="deposit-notes">Observações (opcional)</label>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-close waves-effect waves-light btn-flat">
+            Cancelar
+          </button>
+          <button id="save-deposit" class="waves-effect waves-light btn blue">
+            Salvar
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal de detalhes da meta -->
+      <div id="goal-details-modal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h5 id="detail-goal-name">Nome da Meta</h5>
+
           <div class="row">
             <div class="col s12">
               <div class="progress">
-                <div class="determinate goal-progress" style="width: 0%"></div>
+                <div
+                  id="detail-goal-progress"
+                  class="determinate"
+                  style="width: 0%"
+                ></div>
               </div>
-              <p class="goal-progress-text">R$ 0 de R$ 0 (0%)</p>
+              <p id="detail-goal-progress-text">R$ 0 de R$ 0 (0%)</p>
             </div>
           </div>
-          <div class="row goal-details">
-            <div class="col s6">
-              <p><i class="material-icons tiny">category</i> <span class="goal-category">Categoria</span></p>
-              <p><i class="material-icons tiny">priority_high</i> <span class="goal-priority">Prioridade</span></p>
+
+          <div class="row">
+            <div class="col s12 m6">
+              <h6>Informações da Meta</h6>
+              <p>
+                <strong>Categoria:</strong>
+                <span id="detail-goal-category">Categoria</span>
+              </p>
+              <p>
+                <strong>Prioridade:</strong>
+                <span id="detail-goal-priority">Prioridade</span>
+              </p>
+              <p>
+                <strong>Data limite:</strong>
+                <span id="detail-goal-deadline">Sem data</span>
+              </p>
+              <p>
+                <strong>Criado em:</strong>
+                <span id="detail-goal-created">Data</span>
+              </p>
+              <p>
+                <strong>Notas:</strong>
+                <span id="detail-goal-notes">Notas</span>
+              </p>
             </div>
-            <div class="col s6">
-              <p><i class="material-icons tiny">date_range</i> <span class="goal-deadline">Sem data</span></p>
-              <p><i class="material-icons tiny">trending_up</i> <span class="goal-monthly-needed">R$ 0/mês</span></p>
+            <div class="col s12 m6">
+              <h6>Estatísticas</h6>
+              <p>
+                <strong>Falta economizar:</strong>
+                <span id="detail-goal-remaining">R$ 0,00</span>
+              </p>
+              <p>
+                <strong>Dias restantes:</strong>
+                <span id="detail-goal-days-left">0 dias</span>
+              </p>
+              <p>
+                <strong>Média mensal necessária:</strong>
+                <span id="detail-goal-monthly-needed">R$ 0,00/mês</span>
+              </p>
+              <p>
+                <strong>Média já economizada:</strong>
+                <span id="detail-goal-monthly-avg">R$ 0,00/mês</span>
+              </p>
             </div>
           </div>
-        </div>
-        <div class="card-action">
-          <a href="#deposit-modal" class="modal-trigger blue-text btn-deposit">Depositar</a>
-          <a href="#goal-details-modal" class="modal-trigger green-text btn-details">Detalhes</a>
-          <a href="#edit-goal-modal" class="modal-trigger amber-text text-darken-2 btn-edit">Editar</a>
-        </div>
-      </div>
-    </div>
 
-    <!-- Modal de depósito -->
-    <div id="deposit-modal" class="modal">
-      <div class="modal-content">
-        <h5>Adicionar depósito</h5>
-        <div class="row">
-          <form id="deposit-form" class="col s12">
-            <input type="hidden" id="deposit-goal-id">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="deposit-amount" type="number" min="0.01" step="0.01" class="validate" required>
-                <label for="deposit-amount">Valor (R$)</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="deposit-date" type="date" class="validate" required>
-                <label for="deposit-date">Data</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="deposit-notes" type="text">
-                <label for="deposit-notes">Observações (opcional)</label>
-              </div>
-            </div>
-          </form>
+          <h6>Histórico de Depósitos</h6>
+          <table class="striped responsive-table">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Valor</th>
+                <th>Observações</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="deposits-list">
+              <!-- Os depósitos serão inseridos aqui dinamicamente -->
+              <tr class="no-deposits-row">
+                <td colspan="4" class="center-align">
+                  Nenhum depósito registrado
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <a
+            href="#deposit-modal"
+            class="modal-trigger waves-effect waves-light btn blue"
+            >Adicionar Depósito</a
+          >
+          <button class="modal-close waves-effect waves-light btn-flat">
+            Fechar
+          </button>
         </div>
       </div>
-      <div class="modal-footer">
-        <button class="modal-close waves-effect waves-light btn-flat">Cancelar</button>
-        <button id="save-deposit" class="waves-effect waves-light btn blue">Salvar</button>
+
+      <!-- Botão flutuante para adicionar nova meta -->
+      <div class="fixed-action-btn">
+        <a href="add-goal.html" class="btn-floating btn-large blue">
+          <i class="large material-icons">add</i>
+        </a>
       </div>
-    </div>
+    </main>
 
-    <!-- Modal de detalhes da meta -->
-    <div id="goal-details-modal" class="modal modal-fixed-footer">
-      <div class="modal-content">
-        <h5 id="detail-goal-name">Nome da Meta</h5>
-        
-        <div class="row">
-          <div class="col s12">
-            <div class="progress">
-              <div id="detail-goal-progress" class="determinate" style="width: 0%"></div>
-            </div>
-            <p id="detail-goal-progress-text">R$ 0 de R$ 0 (0%)</p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12 m6">
-            <h6>Informações da Meta</h6>
-            <p><strong>Categoria:</strong> <span id="detail-goal-category">Categoria</span></p>
-            <p><strong>Prioridade:</strong> <span id="detail-goal-priority">Prioridade</span></p>
-            <p><strong>Data limite:</strong> <span id="detail-goal-deadline">Sem data</span></p>
-            <p><strong>Criado em:</strong> <span id="detail-goal-created">Data</span></p>
-            <p><strong>Notas:</strong> <span id="detail-goal-notes">Notas</span></p>
-          </div>
-          <div class="col s12 m6">
-            <h6>Estatísticas</h6>
-            <p><strong>Falta economizar:</strong> <span id="detail-goal-remaining">R$ 0,00</span></p>
-            <p><strong>Dias restantes:</strong> <span id="detail-goal-days-left">0 dias</span></p>
-            <p><strong>Média mensal necessária:</strong> <span id="detail-goal-monthly-needed">R$ 0,00/mês</span></p>
-            <p><strong>Média já economizada:</strong> <span id="detail-goal-monthly-avg">R$ 0,00/mês</span></p>
-          </div>
-        </div>
-
-        <h6>Histórico de Depósitos</h6>
-        <table class="striped responsive-table">
-          <thead>
-            <tr>
-              <th>Data</th>
-              <th>Valor</th>
-              <th>Observações</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody id="deposits-list">
-            <!-- Os depósitos serão inseridos aqui dinamicamente -->
-            <tr class="no-deposits-row">
-              <td colspan="4" class="center-align">Nenhum depósito registrado</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- Rodapé -->
+    <footer class="page-footer blue">
+      <div class="footer-copyright">
+        <div class="container">© 2025 FinanceMeta - Versão 1.0</div>
       </div>
-      <div class="modal-footer">
-        <a href="#deposit-modal" class="modal-trigger waves-effect waves-light btn blue">Adicionar Depósito</a>
-        <button class="modal-close waves-effect waves-light btn-flat">Fechar</button>
-      </div>
-    </div>
+    </footer>
 
-    <!-- Botão flutuante para adicionar nova meta -->
-    <div class="fixed-action-btn">
-      <a href="add-goal.html" class="btn-floating btn-large blue">
-        <i class="large material-icons">add</i>
-      </a>
-    </div>
-  </main>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/db.js"></script>
+    <script src="./js/ui.js"></script>
+    <script>
+      // Inicializar componentes do Materialize
+      document.addEventListener("DOMContentLoaded", function () {
+        var selects = document.querySelectorAll("select");
+        M.FormSelect.init(selects);
 
-  <!-- Rodapé -->
-  <footer class="page-footer blue">
-    <div class="footer-copyright">
-      <div class="container">
-        © 2025 FinanceMeta - Versão 1.0
-      </div>
-    </div>
-  </footer>
+        var sidenav = document.querySelectorAll(".sidenav");
+        M.Sidenav.init(sidenav);
 
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/db.js"></script>
-  <script src="js/ui.js"></script>
-  <script>
-    // Inicializar componentes do Materialize
-    document.addEventListener('DOMContentLoaded', function() {
-      var selects = document.querySelectorAll('select');
-      M.FormSelect.init(selects);
-      
-      var sidenav = document.querySelectorAll('.sidenav');
-      M.Sidenav.init(sidenav);
-      
-      var modals = document.querySelectorAll('.modal');
-      M.Modal.init(modals);
-    });
-  </script>
-</body>
+        var modals = document.querySelectorAll(".modal");
+        M.Modal.init(modals);
+      });
+    </script>
+  </body>
 </html>
